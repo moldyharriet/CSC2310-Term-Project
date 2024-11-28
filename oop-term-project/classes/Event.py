@@ -2,7 +2,12 @@
 class Event:
 
     def __init__(self, d:dict):
-        pass
+        self.__name = d.get("Name", "--");
+        self.__uid = d.get("UID", "-1");
+        self.__date = d.get("Date", "--/--/----");
+        self.__start_time = d.get("StartTime", "--:--");
+        self.__location = d.get("Location", "--");
+        self.__duration = d.get("Duration", "--");
 
     # This function defines what happens when you print the object as text i.e., print(Event)
     def __str__(self) -> str:
@@ -22,3 +27,28 @@ class Event:
             self.__start_time == other.start_time and \
             self.__location == other.location and \
             self.__duration == other.duration
+    
+    #begin getters
+    @property
+    def name(self):
+        return self.__name;
+
+    @property
+    def uid(self):
+        return self.__uid;
+
+    @property
+    def date(self):
+        return self.__date;
+
+    @property
+    def start_time(self):
+        return self.__start_time;
+
+    @property
+    def location(self):
+        return self.__location;
+
+    @property
+    def duration(self):
+        return self.__duration;
