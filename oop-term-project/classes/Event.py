@@ -2,6 +2,9 @@
 class Event:
 
     def __init__(self, d:dict):
+        #these are simply going to initialize the class attributes to be equal to their counterpart
+        #in the json file, IF it exists. If it does not, it will default to the second argument passed
+        #to the dictionary.get() method
         self.__name = d.get("Name", "--");
         self.__uid = d.get("UID", "-1");
         self.__date = d.get("Date", "--/--/----");
