@@ -16,15 +16,47 @@ class EventManager:
     """
     # constructor (1 method)
     def __init__(self):
-        event_list:Event = [];
-        contact_list:Contact = [];
-        eventattendee_list:EventAttendee = [];
-        event_uid:int = 0;
-        contact_uid:int = 0;
+        #for the time being, these are all private attributes. 
+        #TODO: might need to change these to protected/public
+        self.__event_list:Event = [];
+        self.__contact_list:Contact = [];
+        self.__eventattendee_list:EventAttendee = [];
+        self.__event_uid:int = 0;
+        self.__contact_uid:int = 0;
     
     # getters (5 methods)
+    @property
+    def event_list(self):
+        return self.__event_list; #should return an entire list made up of Event objects
+
+    @property
+    def contact_list(self):
+        return self.__contact_list; #should return an entire list made up of Contact objects
+
+    @property
+    def eventattendee_list(self):
+        return self.__eventattendee_list;
+
+    @property
+    def event_uid(self):
+        return self.__event_uid;
+
+    @property
+    def contact_uid(self):
+        return self.__contact_uid;
 
     # setters (5 methods)
+    @property
+    def event_list(self, new_event_list): #this is NOT the method to append an Event to a list. This will replace the list with whatever is passed
+        self.__event_list = new_event_list;
+    
+    @property
+    def contact_list(self, new_contact_list): #this is NOT the method to append a Contact to a list. This will replace the list with whatever is passed
+        self.__contact_list = new_contact_list;
+    
+    @property
+    def eventattendee_list(self, new_eventattendee_list): #this is NOT the method to append an EventAttendee to a list. This will replace the list with whatever is passed
+        self.__eventattendee_list = new_eventattendee_list;
 
     # other methods (6 methods)
 
