@@ -87,7 +87,7 @@ class EventManager:
         which is *for the same event as 'e'*, and is *in the same Contact object as 'c'*
         """
         for object in self.__eventattendee_list: 
-            if (object.contact_object() == c) and (object.event_object() == e):
+            if (object.contact_object == c) and (object.event_object == e):
                 return True;
         return False;
 
@@ -97,6 +97,20 @@ class EventManager:
         else:
             new_event_attendee = EventAttendee(c, e);
             self.__eventattendee_list.append(new_event_attendee);
+    
+    def uid_to_event(self, uid:int):
+        for e in self.__event_list:
+            if e.UID == uid:
+                return e;
+            else:
+                return None;
+
+    def uid_to_contact(self, uid:int):
+        for c in self.__contact_list:
+            if c.UID == uid:
+                return c;
+            else:
+                return None;
     
     # pre-existing methods (2 methods; they are already here; no need to touch them)
 
