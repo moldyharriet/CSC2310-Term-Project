@@ -3,6 +3,9 @@ import json
 class Contact:
 
     #constructor to pull data in from json dictionary
+    #similarly to event.py, it is simply going to pull data from the json dictionary and assign it to its counterpart
+    #in this class's attributes. If that data does not exist in the json file, then it will be assigned
+    #some sort of value to indiciate null
     def __init__(self, d: dict):
         self.__firstname = d.get("FirstName", "--");
         self.__lastname = d.get("LastName", "--");
