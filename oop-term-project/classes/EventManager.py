@@ -77,7 +77,7 @@ class EventManager:
         new_contact = Contact(d); #creates a new Contact object, new_contact
         self.__contact_list.append(new_contact); #appends the newly created contact to the contact list
         self.__contact_uid = self.__contact_uid + 1; #increment Contact UID counter
-        EventManager._sort_contacts();
+        self._sort_contacts();
 
     def is_attending(self, c:Contact, e:Event):
         #this cannot be the best way to implement this, but I had a difficult time
