@@ -85,6 +85,6 @@ class Contact:
         return self.__last_contact;
 
     #setter for last_contact
-    @property
+    @last_contact.setter
     def last_contact(self, last_contact: str):
         self.__last_contact = last_contact;
