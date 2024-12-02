@@ -80,6 +80,10 @@ class Contact:
     def mail_code(self):
         return self.__mail_code;
 
+    @property
+    def last_contact(self):
+        return self.__last_contact;
+
     #setter for last_contact
     @property
     def last_contact(self, last_contact: str):
