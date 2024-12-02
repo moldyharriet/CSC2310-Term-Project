@@ -86,8 +86,8 @@ class EventManager:
         This essentially just checks for the existence of an EventAttendee object
         which is *for the same event as 'e'*, and is *in the same Contact object as 'c'*
         """
-        for object in self.__event_attendees: 
-            if (object.contact_object == c) and (object.event_object == e):
+        for object in self.__event_attendees:
+            if (object.contact == c) and (object.event == e):
                 return True;
         return False;
 
@@ -100,14 +100,14 @@ class EventManager:
     
     def uid_to_event(self, uid:int):
         for e in self.__events:
-            if e.UID == uid:
+            if e.uid == uid:
                 return e;
             else:
                 return None;
 
     def uid_to_contact(self, uid:int):
         for c in self.__contacts:
-            if c.UID == uid:
+            if c.uid == uid:
                 return c;
             else:
                 return None;

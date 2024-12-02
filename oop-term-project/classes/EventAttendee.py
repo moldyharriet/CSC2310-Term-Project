@@ -14,8 +14,8 @@ class EventAttendee:
 
     #constructor
     def __init__(self, c:Contact, e:Event):
-        self.__contact_object = c;
-        self.__event_object = e;
+        self.__contact = c;
+        self.__event = e;
         self.__memo = "";
 
     # This function defines what happens when you print the object as text, i.e. print(event_attendee)
@@ -31,25 +31,25 @@ class EventAttendee:
     
     #begin getters
     @property
-    def contact_object(self):
-        return self.__contact_object;
+    def contact(self):
+        return self.__contact;
 
     @property
-    def event_object(self):
-        return self.__event_object;
+    def event(self):
+        return self.__event;
 
     @property
     def memo(self):
         return self.__memo;
 
     #begin setters
-    @contact_object.setter
-    def contact_object(self, c:Contact):
-        self.__contact_object = c;
+    @contact.setter
+    def contact(self, c:Contact):
+        self.__contact = c;
 
-    @event_object.setter
-    def event_object(self, e:Event):
-        self.__event_object = e;
+    @event.setter
+    def event(self, e:Event):
+        self.__event = e;
 
     @memo.setter
     def memo(self, m:str):
