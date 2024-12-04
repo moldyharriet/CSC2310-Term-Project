@@ -76,7 +76,7 @@ class EventManager:
     def add_contact(self, d:dict):
         new_contact = Contact(d); #creates a new Contact object, new_contact
         self.__contacts.append(new_contact); #appends the newly created contact to the contact list
-        self.__contact_uid = self.__contact_uid + 1; #increment Contact UID counter
+        self.__contact_uid += 1; #increment Contact UID counter
         self._sort_contacts();
 
     def is_attending(self, c:Contact, e:Event):
@@ -86,31 +86,33 @@ class EventManager:
         This essentially just checks for the existence of an EventAttendee object
         which is *for the same event as 'e'*, and is *in the same Contact object as 'c'*
         """
-        for object in self.__event_attendees:
-            if (object.contact == c) and (object.event == e):
+        for attendee in self.__event_attendees:
+            if (attendee.contact == c) and (attendee.event == e):
                 return True;
         return False;
 
     def add_event_attendee(self, c:Contact, e:Event):
-        if self.is_attending(c, e):
-            pass
-        else:
+        if not self.is_attending(c, e):
             new_event_attendee = EventAttendee(c, e);
             self.__event_attendees.append(new_event_attendee);
-    
+        else:
+            print("Contact already attending event. Skipping...");
+                
+
+    #these functions are returning none when they are called by the gui.py file
+    #which in turn is causing the function to pass a None object to the __eq__
+    #method in the Contact.py class, which is causing most all of my issues                
     def uid_to_event(self, uid:int):
         for e in self.__events:
             if e.uid == uid:
                 return e;
-            else:
-                return None;
+        return None;
 
     def uid_to_contact(self, uid:int):
-        for c in self.__contacts:
+        for c in self.__contacts: #iterates through list and compares c.uid to find a match
             if c.uid == uid:
                 return c;
-            else:
-                return None;
+        return None;
     
     # pre-existing methods (2 methods; they are already here; no need to touch them)
 
